@@ -1,0 +1,84 @@
+body, html { margin: 0; padding: 0; height: 100%;
+font-family: "Twemoji Country Flags", "Segoe UI Emoji", "Apple Color Emoji", sans-serif;}
+
+#app {
+  display: flex;
+  height: 100vh;
+}
+
+#sidebar {
+  width: 340px;
+  min-width: 340px;
+  padding: 24px;
+  overflow-y: auto;
+  background: white;
+  border-right: 1px solid #ddd;
+}
+
+#sidebar h1 { font-size: 22px; margin-top: 0; }
+
+#info-panel {
+  border-left: 4px solid #3b82f6;
+  padding: 16px;
+  background: #f8faff;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+#info-panel.hidden { display: none; }
+
+#map { flex: 1; }
+
+/* Make the flag look large and clean inside your sidebar */
+#team-flag {
+  font-family: "Twemoji Country Flags", "Segoe UI Emoji", sans-serif !important;
+  font-size: 4rem;
+  display: inline-block;
+}
+
+.legend {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,.2);
+  font-size: 14px;
+  min-width: 120px;
+}
+
+.legend h4 {
+  margin: 0 0 8px 0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.legend-item:hover {
+  opacity: 0.8;
+}
+
+.legend-color {
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.legend-item.inactive {
+  opacity: 0.35;
+}
+
+
+.facility-photo {
+  width: 100%;          /* Make it fill the sidebar width */
+  height: auto;         /* Keep correct proportions */
+  max-height: 220px;    /* Prevent it from getting too tall */
+  object-fit: cover;    /* Crop nicely instead of stretching */
+  border-radius: 6px;   /* Optional: rounded corners */
+  margin-top: 10px;     /* Spacing above the image */
+  display: block;       /* Removes weird inline spacing */
+}

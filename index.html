@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2026 FIFA World Cup - Training Venues</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script type="module">
+  import { polyfillCountryFlagEmojis } from "https://cdn.skypack.dev/country-flag-emoji-polyfill";
+  polyfillCountryFlagEmojis();
+  </script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+      <h1>2026 FIFA World Cup - Training Venues</h1>
+      <p>Click any location point on the map to view the camp details and see if a national team is practicing in your backyard!</p>
+
+      <div id="info-panel" class="hidden">
+        <span id="team-flag"></span>
+        <h2 id="facility-name"></h2>
+        <p><strong>Country Camped:</strong> <span id="team-name"></span></p>
+        <p><strong>Location:</strong> <span id="city-name"></span></p>
+        <img id="facility-image" class="facility-photo" src="" alt="Facility image">
+        <!--<p><strong>Field Composition:</strong> <span id="field-type"></span></p>-->
+        <p><strong>Notes:</strong> <span id="notes"></span></p>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div id="map" style= "height:100vh;"></div>
+
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="js/map.js"></script>
+
+</body>
+</html>
