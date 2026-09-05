@@ -1,0 +1,105 @@
+date,home_team,home_flag,away_team,away_flag,score,status
+6/11/2026,Mexico,MX,South Africa,ZA,"2-0",FT
+6/11/2026,Korea Republic,KR,Czechia,CZ,"2-1",FT
+6/12/2026,Canada,CA,Bosnia and Herzegovina,BA,"1-1",FT
+6/12/2026,USA,US,Paraguay,PY,"4-1",FT
+6/13/2026,Qatar,QA,Switzerland,CH,"1-1",FT
+6/13/2026,Brazil,BR,Morocco,MA,"1-1",FT
+6/13/2026,Haiti,HT,Scotland,scotland,"0-1",FT
+6/14/2026,Australia,AU,Turkiye,TR,"2-0",FT
+6/14/2026,Germany,DE,Curacao,CW,"7-1",FT
+6/14/2026,Netherlands,NL,Japan,JP,"2-2",FT
+6/14/2026,Cote d'Ivoire,CI,Ecuador,EC,"1-0",FT
+6/14/2026,Sweden,SE,Tunisia,TN,"5-1",FT
+6/15/2026,Spain,ES,Cabo Verde,CV,"0-0",FT
+6/15/2026,Belgium,BE,Egypt,EG,"1-1",FT
+6/15/2026,Saudi Arabia,SA,Uruguay,UY,"1-1",FT
+6/15/2026,IR Iran,IR,New Zealand,NZ,"2-2",FT
+6/16/2026,France,FR,Senegal,SN,"3-1",FT
+6/16/2026,Iraq,IQ,Norway,NO,"1-4",FT
+6/16/2026,Argentina,AR,Algeria,DZ,"3-0",FT
+6/17/2026,Austria,AT,Jordan,JO,"3-1",FT
+6/17/2026,Portugal,PT,Congo DR,CD,"1-1",FT
+6/17/2026,England,england,Croatia,HR,"4-2",FT
+6/17/2026,Ghana,GH,Panama,PA,1-0,FT
+6/17/2026,Uzbekistan,UZ,Colombia,CO,1-3,FT
+6/18/2026,Czechia,CZ,South Africa,ZA,1-1,FT
+6/18/2026,Switzerland,CH,Bosnia and Herzegovina,BA,4-1,FT
+6/18/2026,Canada,CA,Qatar,QA,6-0,FT
+6/18/2026,Mexico,MX,Korea Republic,KR,1-0,FT
+6/19/2026,USA,US,Australia,AU,2-0,FT
+6/19/2026,Scotland,scotland,Morocco,MA,0-1,FT
+6/19/2026,Brazil,BR,Haiti,HT,3-0,FT
+6/19/2026,Turkiye,TR,Paraguay,PY,0-1,FT
+6/20/2026,Netherlands,NL,Sweden,SE,5-1,FT
+6/20/2026,Germany,DE,Cote d'Ivoire,CI,2-1,FT
+6/20/2026,Ecuador,EC,Curacao,CW,0-0,FT
+6/21/2026,Tunisia,TN,Japan,JP,0-4,FT
+6/21/2026,Spain,ES,Saudi Arabia,SA,4-0,FT
+6/21/2026,Belgium,BE,IR Iran,IR,0-0,FT
+6/21/2026,Uruguay,UY,Cabo Verde,CV,2-2,FT
+6/21/2026,New Zealand,NZ,Egypt,EG,1-3,FT
+6/22/2026,Argentina,AR,Austria,AT,2-0,FT
+6/22/2026,France,FR,Iraq,IQ,3-0,FT
+6/22/2026,Norway,NO,Senegal,SN,3-2,FT
+6/22/2026,Jordan,JO,Algeria,DZ,1-2,FT
+6/23/2026,Portugal,PT,Uzbekistan,UZ,5-0,FT
+6/23/2026,England,england,Ghana,GH,0-0,FT
+6/23/2026,Panama,PA,Croatia,HR,0-1,FT
+6/23/2026,Colombia,CO,Congo DR,CD,1-0,FT
+6/24/2026,Switzerland,CH,Canada,CA,2-1,FT
+6/24/2026,Bosnia and Herzegovina,BA,Qatar,QA,3-1,FT
+6/24/2026,Scotland,scotland,Brazil,BR,0-3,FT
+6/24/2026,Morocco,MA,Haiti,HT,4-2,FT
+6/24/2026,Czechia,CZ,Mexico,MX,0-3,FT
+6/24/2026,South Africa,ZA,Korea Republic,KR,1-0,FT
+6/25/2026,Curacao,CW,Cote d'Ivoire,CI,0-2,FT
+6/25/2026,Ecuador,EC,Germany,DE,2-1,FT
+6/25/2026,Japan,JP,Sweden,SE,1-1,FT
+6/25/2026,Tunisia,TN,Netherlands,NL,1-3,FT
+6/25/2026,Turkiye,TR,USA,US,3-2,FT
+6/25/2026,Paraguay,PY,Australia,AU,0-0,FT
+6/26/2026,Norway,NO,France,FR,1-4,FT
+6/26/2026,Senegal,SN,Iraq,IQ,5-0,FT
+6/26/2026,Cabo Verde,CV,Saudi Arabia,SA,0-0,FT
+6/26/2026,Uruguay,UY,Spain,ES,0-1,FT
+6/26/2026,Egypt,EG,IR Iran,IR,1-1,FT
+6/26/2026,New Zealand,NZ,Belgium,BE,1-5,FT
+6/27/2026,Panama,PA,England,england,0-2,FT
+6/27/2026,Croatia,HR,Ghana,GH,2-1,FT
+6/27/2026,Colombia,CO,Portugal,PT,0-0,FT
+6/27/2026,Congo DR,CD,Uzbekistan,UZ,3-1,FT
+6/27/2026,Algeria,DZ,Austria,AT,3-3,FT
+6/27/2026,Jordan,JO,Argentina,AR,1-3,FT
+6/28/2026 - Round of 32,South Africa,ZA,Canada,CA,0-1,FT
+6/29/2026 - Round of 32,Brazil,BR,Japan,JP,2-1,FT
+6/29/2026 - Round of 32,Germany,DE,Paraguay,PY,(3) 1-1 (4),FT
+6/29/2026 - Round of 32,Netherlands,NL,Morocco,MA,(2) 1-1 (3),FT
+6/30/2026 - Round of 32,Cote d'Ivoire,CI,Norway,NO,1-2,FT
+6/30/2026 - Round of 32,France,FR,Sweden,SE,3-0,FT
+6/30/2026 - Round of 32,Mexico,MX,Ecuador,EC,2-0,FT
+7/1/2026 - Round of 32,England,england,Congo DR,CD,2-1,FT
+7/1/2026 - Round of 32,Belgium,BE,Senegal,SN,3-2,FT
+7/1/2026 - Round of 32,USA,US,Bosnia and Herzegovina,BA,2-0,FT
+7/2/2026 - Round of 32,Spain,ES,Austria,AT,3-0,FT
+7/2/2026 - Round of 32,Portugal,PT,Croatia,HR,2-1,FT
+7/2/2026 - Round of 32,Switzerland,CH,Algeria,DZ,2-0,FT
+7/3/2026 - Round of 32,Australia,AU,Egypt,EG,(2) 1-1 (4),FT
+7/3/2026 - Round of 32,Argentina,AR,Cabo Verde,CV,3-2,FT
+7/3/2026 - Round of 32,Colombia,CO,Ghana,GH,1-0,FT
+7/4/2026 - Round of 16,Canada,CA,Morocco,MA,0-3,FT
+7/4/2026 - Round of 16,Paraguay,PY,France,FR,,FT
+7/5/2026 - Round of 16,Brazil,BR,Norway,NO,,FT
+7/5/2026 - Round of 16,Mexico,MX,England,england,,FT
+7/6/2026 - Round of 16,Portugal,PT,Spain,ES,,FT
+7/6/2026 - Round of 16,USA,US,Belgium,BE,,FT
+7/7/2026 - Round of 16,Argentina,AR,Egypt,EG,,FT
+7/7/2026 - Round of 16,Switzerland,CH,Colombia,CO,,FT
+7/9/2026 - Quarterfinals,France,FR,Morocco,MA,2-0,FT
+7/10/2026 - Quarterfinals,Spain,ES,Belgium,BE,2-1,FT
+7/11/2026 - Quarterfinals,Norway,NO,England,england,1-2,FT
+7/11/2026 - Quarterfinals,Argentina,AR,Switzerland,CH,3-1,FT
+7/14/2026 - Semifinals,France,FR,Spain,ES,0-2,FT
+7/15/2026 - Semifinals,England,england,Argentina,AR,1-2,FT
+7/18/2026 - Bronze Final,France,FR,England,england,4-6,FT
+7/19/2026 - Final,Spain,ES,Argentina,AR,1-0,FT

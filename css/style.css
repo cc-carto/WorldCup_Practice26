@@ -82,3 +82,50 @@ font-family: "Twemoji Country Flags", "Segoe UI Emoji", "Apple Color Emoji", san
   margin-top: 10px;     /* Spacing above the image */
   display: block;       /* Removes weird inline spacing */
 }
+
+.match-team { flex: 1; }
+.match-team.right { text-align: right; }
+
+.match-score {
+  font-weight: bold;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+.match-status {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.no-matches {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.match-teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem; /* was 0.85rem */
+}
+
+.match-date {
+  font-size: 0.8rem; /* was 0.7rem */
+  color: #aaa;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px; /* adds gap between date and next match */
+}
+
+.match-row {
+  padding: 10px 0; /* was 6px, adds more breathing room */
+  border-bottom: 1px solid #eee;
+}
+
+.matches-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 25px 0 2px 0; /* was 12px 0 6px 0, reduce bottom margin */
+  color: #333;
+}

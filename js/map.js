@@ -19,12 +19,56 @@ function getFlag(code) {
   if (!code) return '🌐';
   const key = code.trim().toLowerCase();
   if (SPECIAL_FLAGS[key]) return SPECIAL_FLAGS[key];
-
   return code
     .trim()
     .toUpperCase()
     .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt()));
 }
+
+// STORE MATCHES GLOBALLY
+let allMatches = [];
+
+// RENDER MATCHES FOR A CLICKED TEAM
+function renderMatches(teamName) {
+  const container = document.getElementById('matches-container');
+  if (!container) return;
+
+  const teamMatches = allMatches.filter(m =>
+    m.home_team === teamName || m.away_team === teamName
+  );
+
+  if (teamMatches.length === 0) {
+    container.innerHTML = '<p class="no-matches">No matches scheduled</p>';
+    return;
+  }
+
+  container.innerHTML = `
+    <h4 class="matches-title">Matches</h4>
+    ${teamMatches.map(m => `
+      <div class="match-row">
+              <div class="match-date">${m.date}</div>
+        <div class="match-teams">
+          <span class="match-team">${getFlag(m.home_flag)} ${m.home_team}</span>
+          <span class="match-score">${m.score} <span class="match-status">${m.status}</span></span>
+          <span class="match-team right">${getFlag(m.away_flag)} ${m.away_team}</span>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+// LOAD MATCHES CSV
+Papa.parse('data/matches.csv', {
+  header: true,
+  download: true,
+  transformHeader: h => h.replace(/\uFEFF/g, '').trim(),
+  complete: function(results) {
+    allMatches = results.data;
+  },
+  error: function(err) {
+    console.error('Matches CSV error:', err);
+  }
+});
 
 // GROUP COLORS
 const groupColors = {
@@ -42,14 +86,13 @@ const groupColors = {
   L: "#000000"
 };
 
-
 const groupLayers = {};
 
 Object.keys(groupColors).forEach(group => {
   groupLayers[group] = L.layerGroup().addTo(map);
 });
 
-// RUNS THE CSV FILE FOR DATA
+// LOAD TEAM DATA CSV
 Papa.parse('data/team_data.csv', {
   header: true,
   download: true,
@@ -64,27 +107,22 @@ Papa.parse('data/team_data.csv', {
       if (!t.team) return;
 
       const flag = getFlag(t.flag);
-
       const lat = parseFloat(t.lat);
       const lng = parseFloat(t.long);
-
       const group = (t.group || "").trim();
 
       if (isNaN(lat) || isNaN(lng)) return;
 
       const color = groupColors[group] || "gray";
 
-      
       const marker = L.circleMarker([lat, lng], {
         radius: 6,
         color: "#000000",
         weight: 0.5,
         fillColor: color,
         fillOpacity: 1
-      })
-      //.bindPopup(popupContent);
+      });
 
-      // Add marker to the correct group layer
       if (groupLayers[group]) {
         marker.addTo(groupLayers[group]);
       }
@@ -92,7 +130,7 @@ Papa.parse('data/team_data.csv', {
       marker.on('click', () => {
 
         document.getElementById('facility-image').src =
-    t.facility_img ? `img/${t.facility_img}` : '';
+          t.facility_img ? `img/${t.facility_img}` : '';
 
         document.getElementById('facility-name').textContent =
           t.facility || '';
@@ -103,104 +141,89 @@ Papa.parse('data/team_data.csv', {
         document.getElementById('city-name').textContent =
           t.city || '';
 
-        //document.getElementById('field-type').textContent =
-          //t.field_comp || '';
-
         document.getElementById('notes').textContent =
           t.notes || '';
 
         document.getElementById('team-flag').textContent =
           flag || '';
 
-        document
-          .getElementById('info-panel')
-          .classList.remove('hidden');
+        document.getElementById('info-panel').classList.remove('hidden');
+
+        // RENDER THIS TEAM'S MATCHES
+        renderMatches(t.team);
+
       });
     });
-  
-
 
     // LEGEND
-   const activeGroups = new Set(Object.keys(groupColors));
+    const activeGroups = new Set(Object.keys(groupColors));
 
-const legend = L.control({
-  position: 'topright'
-});
+    const legend = L.control({ position: 'topright' });
 
-legend.onAdd = function () {
+    legend.onAdd = function () {
 
-  const div = L.DomUtil.create('div', 'legend');
+      const div = L.DomUtil.create('div', 'legend');
+      div.innerHTML = '<h4>Groups</h4>';
 
-  div.innerHTML = '<h4>Groups</h4>';
+      Object.entries(groupColors).forEach(([group, color]) => {
 
-  Object.entries(groupColors).forEach(([group, color]) => {
+        const row = document.createElement('div');
+        row.className = 'legend-item';
 
-    const row = document.createElement('div');
-    row.className = 'legend-item';
+        row.innerHTML = `
+          <span class="legend-color" style="background:${color}"></span>
+          Group ${group}
+        `;
 
-    row.innerHTML = `
-      <span class="legend-color" style="background:${color}"></span>
-      Group ${group}
-    `;
+        row.addEventListener('click', function () {
 
-    row.addEventListener('click', function () {
+          const isOnlyVisible =
+            activeGroups.size === 1 &&
+            activeGroups.has(group);
 
-      const isOnlyVisible =
-        activeGroups.size === 1 &&
-        activeGroups.has(group);
+          if (isOnlyVisible) {
+            Object.keys(groupLayers).forEach(g => {
+              map.addLayer(groupLayers[g]);
+            });
+            activeGroups.clear();
+            Object.keys(groupLayers).forEach(g => {
+              activeGroups.add(g);
+            });
+            document.querySelectorAll('.legend-item')
+              .forEach(item => item.classList.remove('inactive'));
+            return;
+          }
 
-      if (isOnlyVisible) {
+          Object.keys(groupLayers).forEach(g => {
+            if (g === group) {
+              map.addLayer(groupLayers[g]);
+              activeGroups.add(g);
+            } else {
+              map.removeLayer(groupLayers[g]);
+              activeGroups.delete(g);
+            }
+          });
 
-        Object.keys(groupLayers).forEach(g => {
-          map.addLayer(groupLayers[g]);
+          document.querySelectorAll('.legend-item')
+            .forEach(item => item.classList.add('inactive'));
+
+          row.classList.remove('inactive');
+
         });
 
-        activeGroups.clear();
-
-        Object.keys(groupLayers).forEach(g => {
-          activeGroups.add(g);
-        });
-
-        document
-          .querySelectorAll('.legend-item')
-          .forEach(item => item.classList.remove('inactive'));
-
-        return;
-      }
-
-      Object.keys(groupLayers).forEach(g => {
-
-        if (g === group) {
-          map.addLayer(groupLayers[g]);
-          activeGroups.add(g);
-        } else {
-          map.removeLayer(groupLayers[g]);
-          activeGroups.delete(g);
-        }
+        div.appendChild(row);
 
       });
 
-      document
-        .querySelectorAll('.legend-item')
-        .forEach(item => item.classList.add('inactive'));
+      return div;
+    };
 
-      row.classList.remove('inactive');
+    legend.addTo(map);
 
-    });
-
-    div.appendChild(row);
-
-  });
-
-  return div;
-};
-
-legend.addTo(map);
-
-  }, // end complete
+  },
 
   error: function(err) {
     console.error(err);
   }
 
-}); // end Papa.parse
+});
